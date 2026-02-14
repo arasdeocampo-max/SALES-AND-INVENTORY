@@ -1,0 +1,54 @@
+
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>Medicines</title><link rel="stylesheet" href="styles.css"/></head><body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="logo"> LIFE AND HEALTH PHARM</div>
+    <nav class="menu">
+      <a href="dashboard.html" data-page="dashboard.html">Dashboard</a>
+      <a href="medicines.html" data-page="medicines.html">Medicines</a>
+      <a href="inventory.html" data-page="inventory.html">Inventory</a>
+      <a href="pos.html" data-page="pos.html">POS</a>
+      <a href="reorder.html" data-page="reorder.html">Reorder List</a>
+      <a href="reports.html" data-page="reports.html">Reports</a>
+      <a href="audit.html" data-page="audit.html">Audit Trail</a>
+      <a href="#" id="logoutLink">Logout</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="sidebarToggle">☰</button>
+        <h2 id="pageTitle">Page</h2>
+      </div>
+      <span class="badge" id="roleBadge">Role</span>
+    </header>
+    <main class="content">
+      <section class="card">
+        <form id="medicineForm" class="grid grid-2">
+          <input type="hidden" id="med_id" />
+          <fieldset><legend>Basic Info</legend>
+            <label>Name</label><input id="med_name" required /><small class="helper-text">Medicine full name.</small>
+            <label>Barcode</label><input id="med_barcode" required /><small class="helper-text">Unique barcode value.</small>
+            <label>Shelf</label><input id="med_shelf" placeholder="A1" /><small class="helper-text">Storage location label.</small>
+          </fieldset>
+          <fieldset><legend>Classification</legend>
+            <label>Type</label><select id="med_type"><option>OTC</option><option>RX</option></select>
+            <label>Form</label><select id="med_classification" required><option value="">-- Select Form --</option><option>Tablet/Capsule</option><option>Syrup</option><option>Vial</option><option>Injection</option><option>Medical Equipment</option><option>Cream/Ointment</option><option>Suspension</option><option>Powder</option></select><small class="helper-text">Medicine form/classification.</small>
+            <label>Reorder Level</label><input id="med_reorderLevel" type="number" min="1" required />
+            <label>Expiry Date</label><input id="med_expiryDate" type="date" required />
+            <label>Unit Price</label><input id="med_price" type="number" min="0" step="0.01" required />
+          </fieldset>
+          <button class="btn btn-primary" type="submit">Save Medicine</button>
+        </form>
+      </section>
+      <section class="card">
+        <div class="table-tools"><input id="searchMed" placeholder="Search medicine/barcode/shelf" /></div>
+        <div class="table-wrap"><table id="medTable"><thead><tr><th>Name</th><th>Barcode</th><th>Shelf</th><th>Type</th><th>Form</th><th>Reorder</th><th>Expiry</th><th>Price</th><th>Actions</th></tr></thead><tbody id="medTableBody"></tbody></table></div>
+      </section>
+    </main>
+  </section>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>POS</title><link rel="stylesheet" href="styles.css"/></head><body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="logo"> LIFE AND HEALTH PHARM</div>
+    <nav class="menu">
+      <a href="dashboard.html" data-page="dashboard.html">Dashboard</a>
+      <a href="medicines.html" data-page="medicines.html">Medicines</a>
+      <a href="inventory.html" data-page="inventory.html">Inventory</a>
+      <a href="pos.html" data-page="pos.html">POS</a>
+      <a href="reorder.html" data-page="reorder.html">Reorder List</a>
+      <a href="reports.html" data-page="reports.html">Reports</a>
+      <a href="audit.html" data-page="audit.html">Audit Trail</a>
+      <a href="#" id="logoutLink">Logout</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="sidebarToggle">☰</button>
+        <h2 id="pageTitle">Page</h2>
+      </div>
+      <span class="badge" id="roleBadge">Role</span>
+    </header>
+    <main class="content">
+      <section class="card">
+        <form id="posForm" class="grid grid-2">
+          <fieldset><legend>Sale Entry</legend>
+            <label>Barcode (Scan or Enter)</label><input id="pos_barcode" type="text" placeholder="Scan barcode or type manually" autofocus />
+            <small class="helper-text">Scan with reader or enter barcode manually</small>
+            <label>Medicine</label><select id="pos_medicineId"></select>
+            <label>Quantity</label><input id="pos_qty" type="number" min="1" required />
+            <label>Prescription Available?</label><select id="pos_hasRx"><option value="no">No</option><option value="yes">Yes</option></select>
+            <small class="helper-text">RX items require prescription confirmation.</small>
+          </fieldset>
+          <fieldset><legend>Checkout</legend>
+            <p>System validates expiry date, stock level, and RX requirement automatically.</p>
+            <button class="btn btn-success" type="submit">Complete Sale</button>
+            <button class="btn btn-primary" type="button" id="printReceiptBtn" style="display:none;">Print Receipt</button>
+            <h3>Total: <span id="posTotal">₱0.00</span></h3>
+          </fieldset>
+        </form>
+      </section>
+      <!-- Receipt Modal -->
+      <div id="receiptModal" class="modal-backdrop" style="display:none;">
+        <div class="modal" style="max-width:400px;">
+          <h3>Receipt Preview</h3>
+          <div id="receiptContent" class="receipt-content"></div>
+          <div class="modal-actions">
+            <button class="btn btn-muted" id="closeReceiptBtn">Close</button>
+            <button class="btn btn-primary" id="confirmPrintBtn">Print</button>
+          </div>
+        </div>
+      </div>
+      <!-- Hidden Receipt for Printing -->
+      <div id="printReceipt" style="display:none;"></div>
+    </main>
+  </section>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body></html>

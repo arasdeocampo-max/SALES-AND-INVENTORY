@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup | Pharmacy System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <h1>Create Account</h1>
+    <p>Local demo account only. Data is stored in your browser.</p>
+    <form id="signupForm" class="grid">
+      <div>
+        <label for="signup_username">Username</label>
+        <input id="signup_username" required />
+      </div>
+      <div>
+        <label for="signup_password">Password</label>
+        <input id="signup_password" type="password" minlength="4" required />
+      </div>
+      <div>
+        <label for="signup_role">Role</label>
+        <select id="signup_role">
+          <option>Admin</option>
+          <option>Staff</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="login.html" style="color:var(--primary)">Login</a></p>
+  </main>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

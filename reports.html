@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Reports</title><link rel="stylesheet" href="styles.css"/></head><body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="logo"> LIFE AND HEALTH PHARM</div>
+    <nav class="menu">
+      <a href="dashboard.html" data-page="dashboard.html">Dashboard</a>
+      <a href="medicines.html" data-page="medicines.html">Medicines</a>
+      <a href="inventory.html" data-page="inventory.html">Inventory</a>
+      <a href="pos.html" data-page="pos.html">POS</a>
+      <a href="reorder.html" data-page="reorder.html">Reorder List</a>
+      <a href="reports.html" data-page="reports.html">Reports</a>
+      <a href="audit.html" data-page="audit.html">Audit Trail</a>
+      <a href="#" id="logoutLink">Logout</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="sidebarToggle">☰</button>
+        <h2 id="pageTitle">Page</h2>
+      </div>
+      <span class="badge" id="roleBadge">Role</span>
+    </header>
+    <main class="content">
+      <section class="grid grid-2">
+        <article class="card"><h3>Total Revenue</h3><div class="kpi" id="repRevenue">₱0.00</div></article>
+        <article class="card">
+          <h3>Actions</h3>
+          <button class="btn btn-primary" id="btnExportCSV">Export CSV</button>
+          <button class="btn btn-muted" id="btnPrint">Print Report</button>
+        </article>
+      </section>
+      <section class="card">
+        <div class="table-wrap"><table id="salesTable"><thead><tr><th>Date</th><th>Medicine</th><th>Qty</th><th>Total</th><th>Cashier</th></tr></thead><tbody id="salesTableBody"></tbody></table></div>
+      </section>
+    </main>
+  </section>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body></html>
